@@ -1,3 +1,6 @@
+# python main.py --url "http://s3.amazonaws.com/cuny-is211-spring2015/weblog.csv"
+
+
 import argparse
 import csv
 import datetime
@@ -25,7 +28,6 @@ imageBrowserList = []
 
 
 def imageHits(dataList):
-
     count = 0
     imageCount = 0
     for line in dataList:
@@ -54,6 +56,7 @@ def browserType(imageBrowserList=None, browserTup=None):
             browserCount[browsers[0][0]] += 1
     browserTup.sort(reverse=True)
     print("The most used browser in {} with {} hits".format(browserTup[0][1], browserTup[0][0]))
+
 
 def hourHits(dataList, histDict=None):
     hitsDict = {}
@@ -87,6 +90,7 @@ def main():
     image = imageHits(browserData)
     browserType()
     hourHits(browserData)
+
 
 if __name__ == "__main__":
     main()
